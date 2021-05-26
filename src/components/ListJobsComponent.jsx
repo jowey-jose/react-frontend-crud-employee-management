@@ -3,7 +3,8 @@
 // Type rcc - from react snippets it will create a skeleton for a react class component.
 
 import React, { Component } from 'react';
-import JobService from './Services/JobService';
+import JobService from '../services/JobService';
+
 
 // This Component Lists Saved Jobs from a DB in a Browser.
 //ListJobsComponent Extends Component from the  React Library.
