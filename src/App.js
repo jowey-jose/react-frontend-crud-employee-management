@@ -1,24 +1,31 @@
-// import logo from './logo.svg';
-
 import './App.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import FooterComponent from './components/FooterComponent';
+import HeaderComponent from './components/HeaderComponent';
 import ListEmployeeComponent from './components/ListEmployeeComponent';
 
 // Root Component.
 // Uses jsx, similar to javascript, recommened for react app development. Makes react code simpler and neat.
 function App() {
   return (
-    // <div className="App">
-    //   <header className="App-header"> 
-    //     <img src={logo} className="App-logo" alt="logo"></img>
-    //   </header>
-    // </div>
+    <div>
+      <Router> 
+            {/* Header and Footer are Created Outside the Switch Because They are Applicable to all Components */}
+            <HeaderComponent/>
+              <div className="container">
+                
+                <Switch>
+                    <Route path = "/" component = {ListEmployeeComponent}></Route>
+                    <Route path = "/employees" component = {ListEmployeeComponent}></Route>
+                    <ListEmployeeComponent />
+                </Switch>
+              </div> 
+            <FooterComponent/>
+      </Router>
 
-    <div className="container">
-      {/* Importing the component. The Component Contains a JSX Code to dispaly tables.*/}
-      <ListEmployeeComponent />
-    </div> 
-
+    </div>
   );
 }
 
 export default App;
+ 
