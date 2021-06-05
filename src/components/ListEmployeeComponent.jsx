@@ -11,8 +11,10 @@ class ListEmployeeComponent extends Component {
         this.state = {
             // Initialize an employee array inside a state.
             employees: []
-
         }
+
+        // Event Handler Binded in Constructor when button is pressed.
+        this.addEmployee = this.addEmployee.bind(this);
 
     }
 
@@ -25,10 +27,25 @@ class ListEmployeeComponent extends Component {
         });
     }
 
+    // Add Employee Method
+    addEmployee(){
+        // When Employee Button is clicked, this route gets called. The path leads to createEmployee Component.
+        // React Router configured in App.js stores history objects.
+        // And history has all the mappings of the routings.
+        // React router passes history objects to each router as props.
+        // React router basically provides history objects, for each route to props.
+        // We get the history objects from props. 
+        // The history object enables us to manually controll the history of the browser.
+        this.props.history.push('/add-employee');
+    }
+
     render() {
         // Write Jsx Code inside the Return method.
         return (
             <div>
+                <div className="row">
+                    <button className="btn btn-primary" onClick={this.addEmployee}> Add Employee </button>
+                </div>
                 {/* In react we use 'className' to point to css/bootsrap classes unlike html where we use the 'class' variable. */}
                 <h2 className="text-center">Employee List</h2>
                 <div className="row">

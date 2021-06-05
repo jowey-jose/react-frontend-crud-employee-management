@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import ListEmployeeComponent from './components/ListEmployeeComponent';
+import CreateEmployeeComponent from './components/CreateEmployeeComponent';
 
 // Root Component.
 // Uses jsx, similar to javascript, recommened for react app development. Makes react code simpler and neat.
@@ -15,9 +16,9 @@ function App() {
               <div className="container">
                 
                 <Switch>
-                    <Route path = "/" component = {ListEmployeeComponent}></Route>
+                    <Route path = "/" exact component = {ListEmployeeComponent}></Route>
                     <Route path = "/employees" component = {ListEmployeeComponent}></Route>
-                    <ListEmployeeComponent />
+                    <Route path = "/add-employee" component = {CreateEmployeeComponent}></Route>
                 </Switch>
               </div> 
             <FooterComponent/>
