@@ -43,13 +43,16 @@ class ListEmployeeComponent extends Component {
         // Write Jsx Code inside the Return method.
         return (
             <div>
-                <div className="row">
-                    <button className="btn btn-primary" onClick={this.addEmployee}> Add Employee </button>
-                </div>
                 {/* In react we use 'className' to point to css/bootsrap classes unlike html where we use the 'class' variable. */}
                 <h2 className="text-center">Employee List</h2>
+
                 <div className="row">
-                    {/* Bootsrap table */}
+                    {/* Employee Button */}
+                    <button className="btn btn-primary" onClick={this.addEmployee}> Add Employee </button>
+                </div>
+
+                <div className="row">
+                    {/* Bootstrap table */}
                     <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
