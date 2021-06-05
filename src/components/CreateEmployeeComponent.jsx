@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EmployeeService from '../services/EmployeeService';
 
 class CreateEmployeeComponent extends Component {
     constructor(props) {
@@ -49,6 +50,15 @@ class CreateEmployeeComponent extends Component {
 
         // Adding Console Log to see the form data in the console
         console.log('employee => ' + JSON.stringify(employee));
+
+
+        // Call create Service method and pass employee object.
+        // Axios returns a promise. We call the then method.
+        EmployeeService.createEmployees(employee).then(res => {
+            // Navigate to the Employee List, once Saved.
+            this.props.history.push('/employees');
+            alert("Employee Created Successfully");
+        });
     }
 
     // Cancel Method. Navigates Back to the Employee List Component.
