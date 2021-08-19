@@ -4,6 +4,7 @@ import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import ListEmployeeComponent from './components/ListEmployeeComponent';
 import CreateEmployeeComponent from './components/CreateEmployeeComponent';
+import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
 
 // Root Component.
 // Uses jsx, similar to javascript, recommened for react app development. Makes react code simpler and neat.
@@ -19,6 +20,8 @@ function App() {
                     <Route path = "/" exact component = {ListEmployeeComponent}></Route>
                     <Route path = "/employees" component = {ListEmployeeComponent}></Route>
                     <Route path = "/add-employee" component = {CreateEmployeeComponent}></Route>
+                    {/* Update Has to pick an id that will dynamically get changed. */}
+                    <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}></Route>
                 </Switch>
               </div> 
             <FooterComponent/>

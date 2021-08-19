@@ -14,6 +14,12 @@ class EmployeeService {
         // And Pass the Employee object .
         return axios.post(EMPLOYEE_API_BASE_URL, employee);
     }
+
+    // Method to get employee by id.
+    // Pass employeeId
+    getEmployeeById(employeeId) {
+        return axios.get(EMPLOYEE_API_BASE_URL + '/' + employeeId);
+    }
 }
 
 // Exporting this object of the Employee Service Class,and use it in a component.

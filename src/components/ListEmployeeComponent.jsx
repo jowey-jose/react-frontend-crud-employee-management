@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 import EmployeeService from '../services/EmployeeService';
 
 // There are 2 types of components in React: Stateful and Stateless. 
@@ -15,6 +16,9 @@ class ListEmployeeComponent extends Component {
 
         // Event Handler Binded in Constructor when button is pressed.
         this.addEmployee = this.addEmployee.bind(this);
+
+        // Bind then edit employee Method to the component.
+        this.editEmployee = this.editEmployee.bind(this);
 
     }
 
@@ -39,6 +43,13 @@ class ListEmployeeComponent extends Component {
         this.props.history.push('/add-employee');
     }
 
+    // Edit Employee Method
+    // Should have the method argument id,  because we are passing id on click of the button.
+    editEmployee(id){
+        // Syntax to pass id to the path url dynamically. (Remember to use back-stick instead of single quotes).
+        this.props.history.push(`/update-employee/${id}`);
+    }
+
     render() {
         // Write Jsx Code inside the Return method.
         return (
@@ -47,11 +58,10 @@ class ListEmployeeComponent extends Component {
                 <h2 className="text-center">Employee List</h2>
 
                 <div className="row">
-                    {/* Employee Button */}
-                    <button className="btn btn-primary" onClick={this.addEmployee}> Add Employee </button>
-                </div>
-
-                <div className="row">
+                    <div className="mb-2">
+                        {/* Employee Button */}
+                        <Button onClick={this.addEmployee} variant="primary">Add Employee</Button>
+                    </div>
                     {/* Bootstrap table */}
                     <table className="table table-striped table-bordered">
                         <thead>
@@ -76,6 +86,11 @@ class ListEmployeeComponent extends Component {
                                         <td>{employee.firstName}</td>
                                         <td>{employee.lastName}</td>
                                         <td>{employee.emailId}</td>
+                                        <td>
+                                            {/* Whenever we want to use id, use arrow function. */}
+                                            {/* Onclick navigates to the edit Employee page.*/}
+                                            <Button onClick= {() => this.editEmployee(employee.id)} variant="info">Update</Button>
+                                        </td>
                                     </tr>
                                 )
                             }
