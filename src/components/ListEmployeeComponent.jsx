@@ -67,6 +67,11 @@ class ListEmployeeComponent extends Component {
 
     }
 
+    // View Employee event Handler
+    viewEmployee(id){
+        this.props.history.push(`/view-employee/${id}`)
+    }
+
     render() {
         // Write Jsx Code inside the Return method.
         return (
@@ -106,10 +111,13 @@ class ListEmployeeComponent extends Component {
                                         <td>
                                             {/* Whenever we want to use id, use arrow function. */}
                                             {/* Onclick navigates to the edit Employee page.*/}
-                                            <Button onClick= {() => this.editEmployee(employee.id)} variant="info">Update</Button>
+                                            <Button onClick= {() => this.editEmployee(employee.id)} variant="warning">Update</Button>
                                             
                                             {/* OnClick deletes that particular record. */}
                                             <Button style={{marginLeft: "10px"}} onClick= {() => this.deleteEmployee(employee.id)} variant="danger">Delete</Button>
+
+                                            {/*Button to navigate to the view employee page.  */}
+                                            <Button style={{marginLeft: "10px"}} onClick= {() => this.viewEmployee(employee.id)} variant="info">View</Button>
                                         </td>
                                     </tr>
                                 )

@@ -4,6 +4,7 @@ import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import ListEmployeeComponent from './components/ListEmployeeComponent';
 import CreateUpdateEmployeeComponent from './components/CreateUpdateEmployeeComponent';
+import ViewEmployeeComponent from './components/ViewEmployeeComponent';
 // import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
 
 // Root Component.
@@ -23,6 +24,9 @@ function App() {
                     <Route path = "/add-employee/:id" component = {CreateUpdateEmployeeComponent}></Route>
                     {/* Update Has to pick an id that will dynamically get changed. */}
                     {/* <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
+
+                    {/* Route to view a particular user details. */}
+                    <Route path = "/view-employee/:id" component= {ViewEmployeeComponent}></Route>
                 </Switch>
               </div> 
             <FooterComponent/>
