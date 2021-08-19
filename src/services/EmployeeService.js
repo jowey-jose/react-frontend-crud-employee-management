@@ -28,6 +28,11 @@ class EmployeeService {
         // Pass employeeId and the Employee Object as the second argument.
         return axios.put(EMPLOYEE_API_BASE_URL + '/' + employeeId, employee);
     }
+
+    // Delete Employee Service.
+    deleteEmployee(employeeId) {
+        return axios.delete(EMPLOYEE_API_BASE_URL + '/' + employeeId);
+    }
 }
 
 // Exporting this object of the Employee Service Class,and use it in a component.

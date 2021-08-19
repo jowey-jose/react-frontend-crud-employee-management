@@ -20,6 +20,9 @@ class ListEmployeeComponent extends Component {
         // Bind then edit employee Method to the component.
         this.editEmployee = this.editEmployee.bind(this);
 
+        // Bind the delete employee Method to the component.
+        this.deleteEmployee = this.deleteEmployee.bind(this); 
+
     }
 
     // Called immediately a component is mounted. Used to make rest/ajax API methods
@@ -51,6 +54,17 @@ class ListEmployeeComponent extends Component {
 
         // Step 6 : Re-using create component to update.
         this.props.history.push(`/add-employee/${id}`);
+    }
+
+    // Delete Employee Event Handler.
+    deleteEmployee(id) {
+        // Delete Rest api call 
+        EmployeeService.deleteEmployee(id).then((res) => {
+            // Remove that deleted employee from the employee list.
+            // Filter a deleted employee from the employee array, instead of making an api call, for perfomance improvement.
+            this.setState({employees: this.state.employees.filter(employee => employee.id !== id)});
+        })
+
     }
 
     render() {
@@ -93,6 +107,9 @@ class ListEmployeeComponent extends Component {
                                             {/* Whenever we want to use id, use arrow function. */}
                                             {/* Onclick navigates to the edit Employee page.*/}
                                             <Button onClick= {() => this.editEmployee(employee.id)} variant="info">Update</Button>
+                                            
+                                            {/* OnClick deletes that particular record. */}
+                                            <Button style={{marginLeft: "10px"}} onClick= {() => this.deleteEmployee(employee.id)} variant="danger">Delete</Button>
                                         </td>
                                     </tr>
                                 )
