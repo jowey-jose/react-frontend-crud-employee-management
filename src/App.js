@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import ListEmployeeComponent from './components/ListEmployeeComponent';
-import CreateEmployeeComponent from './components/CreateEmployeeComponent';
+import CreateUpdateEmployeeComponent from './components/CreateUpdateEmployeeComponent';
 // import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
 
 // Root Component.
@@ -20,7 +20,7 @@ function App() {
                     <Route path = "/employees" component = {ListEmployeeComponent}></Route>
                     {/* Route will re-use CreateEmployeeComponent to perform both Create and Update Functions.*/}
                     {/* // Step 1 : Re-using create component to update. */}
-                    <Route path = "/add-employee/:id" component = {CreateEmployeeComponent}></Route>
+                    <Route path = "/add-employee/:id" component = {CreateUpdateEmployeeComponent}></Route>
                     {/* Update Has to pick an id that will dynamically get changed. */}
                     {/* <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
                 </Switch>

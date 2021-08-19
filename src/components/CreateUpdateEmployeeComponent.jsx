@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import EmployeeService from '../services/EmployeeService';
 
-class CreateEmployeeComponent extends Component {
+class CreateUpdateEmployeeComponent extends Component {
     constructor(props) {
         // Pass props to the super class.
         super(props)
@@ -169,4 +169,4 @@ class CreateEmployeeComponent extends Component {
     }
 }
 
-export default CreateEmployeeComponent;
+export default CreateUpdateEmployeeComponent;
