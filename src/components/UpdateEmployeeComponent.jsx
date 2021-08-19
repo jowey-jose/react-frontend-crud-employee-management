@@ -8,7 +8,7 @@ export default class UpdateEmployeeComponent extends Component {
 
         this.state = {
             // Declare Id, so that it can be used on the route.
-            // Id can be found from the props.
+            // Id can be rerieved found from the props.
             id: this.props.match.params.id,
             // Define properties to state, to store inputs from data, will enable to get form data that will be available in submission
             firstName: '',

@@ -4,7 +4,7 @@ import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import ListEmployeeComponent from './components/ListEmployeeComponent';
 import CreateEmployeeComponent from './components/CreateEmployeeComponent';
-import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
+// import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
 
 // Root Component.
 // Uses jsx, similar to javascript, recommened for react app development. Makes react code simpler and neat.
@@ -15,13 +15,14 @@ function App() {
             {/* Header and Footer are Created Outside the Switch Because They are Applicable to all Components */}
             <HeaderComponent/>
               <div className="container">
-                
-                <Switch>
+                <Switch> 
                     <Route path = "/" exact component = {ListEmployeeComponent}></Route>
                     <Route path = "/employees" component = {ListEmployeeComponent}></Route>
-                    <Route path = "/add-employee" component = {CreateEmployeeComponent}></Route>
+                    {/* Route will re-use CreateEmployeeComponent to perform both Create and Update Functions.*/}
+                    {/* // Step 1 : Re-using create component to update. */}
+                    <Route path = "/add-employee/:id" component = {CreateEmployeeComponent}></Route>
                     {/* Update Has to pick an id that will dynamically get changed. */}
-                    <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}></Route>
+                    {/* <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
                 </Switch>
               </div> 
             <FooterComponent/>

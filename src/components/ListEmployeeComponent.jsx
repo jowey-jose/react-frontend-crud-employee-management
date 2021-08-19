@@ -40,14 +40,17 @@ class ListEmployeeComponent extends Component {
         // React router basically provides history objects, for each route to props.
         // We get the history objects from props. 
         // The history object enables us to manually controll the history of the browser.
-        this.props.history.push('/add-employee');
+        this.props.history.push('/add-employee/_add');
     }
 
     // Edit Employee Method
     // Should have the method argument id,  because we are passing id on click of the button.
     editEmployee(id){
         // Syntax to pass id to the path url dynamically. (Remember to use back-stick instead of single quotes).
-        this.props.history.push(`/update-employee/${id}`);
+        // this.props.history.push(`/update-employee/${id}`);
+
+        // Step 6 : Re-using create component to update.
+        this.props.history.push(`/add-employee/${id}`);
     }
 
     render() {
