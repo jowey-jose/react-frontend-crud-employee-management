@@ -63,10 +63,18 @@ export default class UpdateEmployeeComponent extends Component {
         e.preventDefault();
 
         // Retrieve data from state defined fields.
+        // Populates the selected empoloyee details to the field for editing.
         let employee = {firstName: this.state.firstName, lastName: this.state.lastName, emailId: this.state.emailId};
 
         // Adding Console Log to see the updated form data in the console
         console.log('employee => ' + JSON.stringify(employee));
+
+        // The employee variable has all the updated values.
+        // Call the service to update the employee.
+        EmployeeService.updateEmployee(employee, this.state.id).then((res) => {
+           // Once the update request is completed, navigate to employee list page.
+           this.props.history.push('/employees');
+        })
     }
 
     // Cancel Method. Navigates Back to the Employee List Component.

@@ -13,12 +13,20 @@ class EmployeeService {
         // Returning a Response of post method.
         // And Pass the Employee object .
         return axios.post(EMPLOYEE_API_BASE_URL, employee);
-    }
+    } 
 
     // Method to get employee by id.
     // Pass employeeId
     getEmployeeById(employeeId) {
         return axios.get(EMPLOYEE_API_BASE_URL + '/' + employeeId);
+    }
+    
+    // Method to update Employee.
+    // Makes a request to the update Employee REST Api.
+    updateEmployee(employee, employeeId){
+        // Sends a put request using axios.
+        // Pass employeeId and the Employee Object as the second argument.
+        return axios.put(EMPLOYEE_API_BASE_URL + '/' + employeeId, employee);
     }
 }
 
